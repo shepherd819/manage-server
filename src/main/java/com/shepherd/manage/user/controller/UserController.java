@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @PostMapping("/html/v1/login")
     public String login(){
+        System.out.println("aaa");
         return "aaa";
     }
 }
