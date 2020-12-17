@@ -44,20 +44,76 @@
             <artifactId>pagehelper</artifactId>
             <version>${pagehelper.version}</version>
         </dependency>
-
+        <!-- mysql 驱动-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- 阿里巴巴德鲁伊连接池-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+        <!-- jasypt 加密 -->
+        <!--<dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
+        <resources>
+            <!-- mapper.xml文件在java目录下 -->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.xml</include>
+                    <!--加载模板文件-->
+                    <include>**/*.html</include>
+                    <include>**/*.js</include>
+                    <include>**/*.css</include>
+                    <include>**/*.png</include>
+                    <include>**/*.gif</include>
+                    <include>**/*.woff</include>
+                    <include>**/*.ttf</include>
+                    <!--加载静态文件-->
+                    <include>/static/</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

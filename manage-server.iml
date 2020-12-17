@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
     <facet type="web" name="Web">
       <configuration>
         <webroots />
@@ -9,9 +12,6 @@
           <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
       </configuration>
-    </facet>
-    <facet type="Spring" name="Spring">
-      <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
@@ -23,7 +23,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jdbc:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.4.1" level="project" />
@@ -35,11 +35,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.4.1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-logging:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
@@ -84,6 +82,11 @@
     <orderEntry type="library" name="Maven: com.github.pagehelper:pagehelper:3.6.3" level="project" />
     <orderEntry type="library" name="Maven: com.github.jsqlparser:jsqlparser:0.9.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.22" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid-spring-boot-starter:1.1.10" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.10" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.4.1" level="project" />
+    <orderEntry type="library" name="Maven: org.json:json:20180813" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.4.1" level="project" />
@@ -114,5 +117,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.3.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.7.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:2.2" level="project" />
   </component>
 </module>
