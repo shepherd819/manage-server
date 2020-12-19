@@ -1,6 +1,7 @@
 package com.shepherd.manage.common.exception;
 
 
+import com.shepherd.manage.common.ResBean;
 import com.shepherd.manage.common.Result;
 import com.shepherd.manage.common.constant.RetCodeConst;
 import org.apache.logging.log4j.LogManager;
@@ -33,7 +34,10 @@ public class ExceptionAdvice {
     @ExceptionHandler(value = Exception.class)
     public String exceptionHandler(Exception ex, HttpServletRequest request, HttpServletResponse response, Object handler){
         log.warn("发生未知异常！！！"+ex.getMessage(),ex);
-        return Result.getResult(RetCodeConst.SYS_ERR_CODE,RetCodeConst.SYS_ERR_MSG);
+        ResBean resBean = new ResBean();
+        resBean.setRetCode(RetCodeConst.SYS_ERR_CODE);
+        resBean.setRetInfo(RetCodeConst.SYS_ERR_MSG);
+        return Result.getResult(resBean);
     }
 
     /**
@@ -46,6 +50,9 @@ public class ExceptionAdvice {
     public String baseErrorHandler(BaseException ex, HttpServletRequest request, HttpServletResponse response, Object handler) {
         log.warn("发生异常了！！！"+ex.getMessage(), ex);
         //错误日志的记录，mq记录
-        return Result.getResult(ex.getErrorCode(),ex.getMessage());
+        ResBean resBean = new ResBean();
+        resBean.setRetCode(ex.getErrorCode());
+        resBean.setRetInfo(ex.getMessage());
+        return Result.getResult(resBean);
     }
 }

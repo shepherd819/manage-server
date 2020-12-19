@@ -1,7 +1,5 @@
 package com.shepherd.manage.common;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.shepherd.manage.common.constant.RetCodeConst;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
@@ -22,26 +20,11 @@ public class Result {
      *@param: [reCode, reInfo]
      *@return: java.lang.String
      */
-    public static String getResult(String reCode, String reInfo) {
-        JSONObject returnJson = new JSONObject();
-        returnJson.put("reCode", reCode);
-        returnJson.put("reInfo", reInfo);
+    public static String getResult(ResBean resBean) {
+        JSONObject returnJson = new JSONObject(resBean);
         String returnStr = returnJson.toString();
         log.debug("接口返回结果为：" + returnStr);
         return returnStr;
     }
-
-    /**
-     *@description: 返回成功无返回体
-     *@author: chengxiong
-     *@datatime: 2020/8/27 17:40
-     *@param: []
-     *@return: java.lang.String
-     */
-    public static String getResultWithNoBody() {
-        return getResult(RetCodeConst.SUCCESS_CODE, RetCodeConst.SUCCESS_MSG);
-    }
-
-
 
 }
