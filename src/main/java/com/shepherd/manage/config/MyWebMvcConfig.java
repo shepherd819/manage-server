@@ -1,6 +1,5 @@
 package com.shepherd.manage.config;
 
-import com.shepherd.manage.common.interceptors.MyInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.*;
 
@@ -10,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.*;
  * @datetime 2020/12/17 19:51
  */
 @Configuration
-public class InterceptorConfig implements WebMvcConfigurer {
+public class MyWebMvcConfig implements WebMvcConfigurer {
 
 
     /**

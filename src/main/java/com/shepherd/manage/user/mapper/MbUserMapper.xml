@@ -1,8 +1,64 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.shepherd.manage.user.mapper.MbUserMapper">
+    <resultMap id="resultUserMap" type="com.shepherd.manage.user.bean.MbUserBean">
+        <id column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
 
-    <insert id="addMbUser">
-        insert into T_MB_USER
+        <result column="mobile_no" property="mobileNo" jdbcType="VARCHAR" />
+        <result column="email" property="email" jdbcType="VARCHAR" />
+        <result column="head_img_url" property="headImgUrl" jdbcType="VARCHAR" />
+
+        <result column="account_non_expired" property="accountNonExpired" jdbcType="VARCHAR" />
+        <result column="account_non_locked" property="accountNonLocked" jdbcType="VARCHAR" />
+        <result column="credentials_non_expired" property="credentialsNonExpired" jdbcType="VARCHAR" />
+        <result column="enabled" property="enabled" jdbcType="VARCHAR" />
+
+        <collection property="roles" ofType="com.shepherd.manage.user.bean.RoleBean">
+            <id column="role_id" property="roleId" jdbcType="INTEGER" />
+            <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+            <result column="role_name_zh" property="roleNameZh" jdbcType="VARCHAR" />
+            <result column="role_desc" property="roleDesc" jdbcType="VARCHAR" />
+            <result column="status" property="status" jdbcType="VARCHAR" />
+        </collection>
+    </resultMap>
+
+    <select id="findUserByUserName" resultMap="resultUserMap">
+        select t1.user_id,t1.username,t1.password,t1.mobile_no,t1.email,t1.head_img_url,t1.account_non_expired,
+        t1.account_non_locked,t1.credentials_non_expired,t1.enabled,
+        t2.role_id,t2.role_name,t2.role_name_zh,t2.role_desc,t2.status
+        from T_MB_USER t1 LEFT JOIN T_MB_USER_ROLE tmp ON t1.user_id=tmp.user_id and tmp.is_del=0
+        LEFT JOIN T_MB_ROLE t2 ON tmp.role_id=t2.role_id and t2.is_del=0
+        where t1.is_del=0 and t1.username=#{userName}
+
+    </select>
+    <insert id="batchAddUser">
+        INSERT INTO T_MB_USER
+            (
+                username,
+                password,
+                mobile_no,
+                email,
+                head_img_url,
+                account_non_expired,
+                account_non_locked,
+                credentials_non_expired,
+                enabled
+            )
+         VALUES
+         <foreach collection="list" item="item" separator=",">
+            (
+                #{item.username},
+                #{item.password},
+                #{item.mobileNo},
+                #{item.email},
+                #{item.headImgUrl},
+                #{item.accountNonExpired},
+                #{item.accountNonLocked},
+                #{item.credentialsNonExpired},
+                #{item.enabled}
+             )
+         </foreach>
     </insert>
 </mapper>

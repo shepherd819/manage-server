@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shepherd.manage.user.mapper.RoleMapper">
+
+    <insert id="addRole">
+        insert into T_MB_ROLE
+    </insert>
+    <insert id="batchAddRole">
+        INSERT INTO T_MB_ROLE(role_name,role_name_zh,role_desc,status)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.roleName},
+            #{item.roleNameZh},
+            #{item.roleDesc},
+            #{item.status}
+            )
+        </foreach>
+    </insert>
+</mapper>
