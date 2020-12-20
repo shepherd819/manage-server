@@ -4,9 +4,11 @@ import com.shepherd.manage.user.bean.MbUserBean;
 import com.shepherd.manage.user.bean.RoleBean;
 import com.shepherd.manage.user.mapper.MbUserMapper;
 import com.shepherd.manage.user.mapper.RoleMapper;
+import com.shepherd.manage.user.service.impl.MbUserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,8 @@ class ManageServerApplicationTests {
     MbUserMapper userMapper;
     @Autowired
     RoleMapper roleMapper;
+    @Autowired
+    MbUserServiceImpl service;
     @Test
     void contextLoads() {
         MbUserBean shepherd = userMapper.findUserByUserName("shepherd");
@@ -61,6 +65,12 @@ class ManageServerApplicationTests {
         roleList.add(r1);
         roleList.add(r2);
         roleMapper.batchAddRole(roleList);
+    }
+
+    @Test
+    void selectUserTest(){
+        UserDetails shepherd = service.loadUserByUsername("shepherd");
+        System.out.println(shepherd);
     }
 
 }

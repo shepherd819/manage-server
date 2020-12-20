@@ -17,4 +17,35 @@
             )
         </foreach>
     </insert>
+    <resultMap id="roleMenuList" type="com.shepherd.manage.user.bean.MbMenuBean">
+        <id column="menu_id" property="menuId" jdbcType="INTEGER"/>
+        <result column="menu_path" property="menuPath" jdbcType="VARCHAR"/>
+        <result column="menu_name" property="menuName" jdbcType="VARCHAR"/>
+        <result column="menu_icon" property="menuIcon" jdbcType="VARCHAR"/>
+        <collection property="childs" ofType="com.shepherd.manage.user.bean.MbMenuBean" select="selectById" column="menu_id"/>
+
+    </resultMap>
+    <select id="selectById" resultMap="roleMenuList">
+		select menu_id,menu_path,menu_name,menu_icon from T_MB_MENU where parent_id = #{menu_id} and is_del=0
+	</select>
+    <select id="roleMenuList" resultMap="roleMenuList">
+        SELECT
+            distinct
+            m.menu_id,
+            m.menu_path,
+            m.menu_name,
+            m.menu_icon
+        FROM
+            T_MB_MENU m,
+            T_MB_ROLE_MENU rm
+        WHERE
+            m.menu_id = rm.menu_id
+            AND m.parent_id = 0
+            AND m.is_del =0
+            AND rm.is_del=0
+            AND rm.role_id in
+            <foreach collection="list" item="item" open="(" close=")" separator=",">
+                #{item.roleId}
+            </foreach>
+    </select>
 </mapper>

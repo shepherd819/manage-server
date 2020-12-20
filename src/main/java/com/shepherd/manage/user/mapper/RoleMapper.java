@@ -1,5 +1,6 @@
 package com.shepherd.manage.user.mapper;
 
+import com.shepherd.manage.user.bean.MbMenuBean;
 import com.shepherd.manage.user.bean.RoleBean;
 import org.springframework.stereotype.Repository;
 
@@ -15,4 +16,6 @@ public interface RoleMapper {
     int addRole(RoleBean roleBean);
 
     int batchAddRole(List<RoleBean> list);
+
+    List<MbMenuBean> roleMenuList(List<RoleBean> list);
 }

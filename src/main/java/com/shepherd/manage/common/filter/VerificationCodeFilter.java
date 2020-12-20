@@ -26,7 +26,7 @@ public class VerificationCodeFilter extends GenericFilter {
         if ("POST".equals(request.getMethod())&&"/user/login".equals(request.getRequestURI())) {
             String verify_code = (String) request.getSession().getAttribute("verify_code");
             String code = (String) request.getParameter("code");
-            if(code==null||verify_code==null ||!code.toLowerCase().equals(verify_code.toLowerCase())){
+                if(code==null||verify_code==null ||!code.toLowerCase().equals(verify_code.toLowerCase())){
                 //验证码错误
                 response.setContentType("application/json;charset=utf-8");
                 PrintWriter writer = response.getWriter();

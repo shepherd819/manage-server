@@ -17,6 +17,7 @@ public class MbUserBean implements UserDetails {
     private String mobileNo;
     private String email;
     private String headImgUrl;
+    private List<MbMenuBean> menuList;
 
     private boolean accountNonExpired;
     private boolean accountNonLocked;
@@ -85,6 +86,14 @@ public class MbUserBean implements UserDetails {
 
     public String getHeadImgUrl() {
         return headImgUrl;
+    }
+
+    public List<MbMenuBean> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<MbMenuBean> menuList) {
+        this.menuList = menuList;
     }
 
     /**
