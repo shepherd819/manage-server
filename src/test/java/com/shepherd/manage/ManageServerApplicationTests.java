@@ -1,9 +1,11 @@
 package com.shepherd.manage;
 
+import com.shepherd.manage.common.ResBean;
+import com.shepherd.manage.role.bean.RoleBean;
+import com.shepherd.manage.role.mapper.RoleMapper;
+import com.shepherd.manage.role.service.impl.RoleServiceImpl;
 import com.shepherd.manage.user.bean.MbUserBean;
-import com.shepherd.manage.user.bean.RoleBean;
 import com.shepherd.manage.user.mapper.MbUserMapper;
-import com.shepherd.manage.user.mapper.RoleMapper;
 import com.shepherd.manage.user.service.impl.MbUserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ class ManageServerApplicationTests {
     RoleMapper roleMapper;
     @Autowired
     MbUserServiceImpl service;
+    @Autowired
+    RoleServiceImpl roleService;
     @Test
     void contextLoads() {
         MbUserBean shepherd = userMapper.findUserByUserName("shepherd");
@@ -71,6 +75,24 @@ class ManageServerApplicationTests {
     void selectUserTest(){
         UserDetails shepherd = service.loadUserByUsername("shepherd");
         System.out.println(shepherd);
+    }
+
+    @Test
+    void menuListTest(){
+        ResBean resBean = roleService.menuList();
+        System.out.println(resBean);
+    }
+
+    @Test
+    void roleListTest(){
+        ResBean resBean = roleService.roleList();
+        System.out.println(resBean);
+    }
+
+    @Test
+    void roleMenuTest(){
+        ResBean resBean = roleService.roleMenuList("2");
+        System.out.println(resBean);
     }
 
 }

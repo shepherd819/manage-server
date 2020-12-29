@@ -1,4 +1,6 @@
-package com.shepherd.manage.user.bean;
+package com.shepherd.manage.role.bean;
+
+import java.util.List;
 
 /**
  * @author chengxiong
@@ -6,17 +8,19 @@ package com.shepherd.manage.user.bean;
  * @datetime 2020/12/19 13:57
  */
 public class RoleBean {
-    private Long roleId;
+    private String roleId;
     private String roleName;
     private String roleNameZh;
     private String roleDesc;
     private String status;
 
-    public Long getRoleId() {
+    private List<String> menuIdList;
+
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Long roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
@@ -50,5 +54,13 @@ public class RoleBean {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public List<String> getMenuIdList() {
+        return menuIdList;
+    }
+
+    public void setMenuIdList(List<String> menuIdList) {
+        this.menuIdList = menuIdList;
     }
 }

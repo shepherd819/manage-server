@@ -1,5 +1,7 @@
 package com.shepherd.manage.user.bean;
 
+import com.shepherd.manage.role.bean.MbMenuBean;
+import com.shepherd.manage.role.bean.RoleBean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

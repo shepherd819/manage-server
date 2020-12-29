@@ -1,4 +1,4 @@
-package com.shepherd.manage.user.bean;
+package com.shepherd.manage.role.bean;
 
 import java.util.List;
 

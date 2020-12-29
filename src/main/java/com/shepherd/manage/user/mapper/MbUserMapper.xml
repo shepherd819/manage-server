@@ -15,7 +15,7 @@
         <result column="credentials_non_expired" property="credentialsNonExpired" jdbcType="VARCHAR" />
         <result column="enabled" property="enabled" jdbcType="VARCHAR" />
 
-        <collection property="roles" ofType="com.shepherd.manage.user.bean.RoleBean">
+        <collection property="roles" ofType="com.shepherd.manage.role.bean.RoleBean">
             <id column="role_id" property="roleId" jdbcType="INTEGER" />
             <result column="role_name" property="roleName" jdbcType="VARCHAR" />
             <result column="role_name_zh" property="roleNameZh" jdbcType="VARCHAR" />

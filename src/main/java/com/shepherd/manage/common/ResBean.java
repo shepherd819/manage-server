@@ -1,5 +1,7 @@
 package com.shepherd.manage.common;
 
+import com.shepherd.manage.common.constant.RetCodeConst;
+
 /**
  * @Author chengxiong
  * @weChat cx4932
@@ -9,6 +11,12 @@ public class ResBean {
     private String retCode;
     private String retInfo;
     private Object result;
+
+    public ResBean() {
+        //默认返回成功
+        this.retCode = RetCodeConst.SUCCESS_CODE;
+        this.retInfo = RetCodeConst.SUCCESS_MSG;
+    }
 
     public String getRetCode() {
         return retCode;

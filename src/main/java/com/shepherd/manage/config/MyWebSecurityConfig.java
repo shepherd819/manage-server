@@ -57,8 +57,8 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(verificationCodeFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeRequests()
-                .antMatchers("/admin/**").hasRole("admin")
-                .antMatchers("/user/**").hasRole("user")
+                .antMatchers("/role/**").hasRole("admin")
+//                .antMatchers("/user/**").hasRole("user")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -67,8 +67,6 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                     resp.setContentType("application/json;charset=utf-8");
                     PrintWriter writer = resp.getWriter();
                     ResBean resBean = new ResBean();
-                    resBean.setRetCode(RetCodeConst.SUCCESS_CODE);
-                    resBean.setRetInfo(RetCodeConst.SUCCESS_MSG);
                     resBean.setResult(auth.getPrincipal());
                     new ObjectMapper().writeValue(writer,resBean);
 //                    writer.write(new ObjectMapper().writeValueAsString(auth.getPrincipal()));
@@ -94,8 +92,6 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
                     resp.setContentType("application/json;charset=utf-8");
                     PrintWriter writer = resp.getWriter();
                     ResBean resBean = new ResBean();
-                    resBean.setRetCode(RetCodeConst.SUCCESS_CODE);
-                    resBean.setRetInfo(RetCodeConst.LOGOUT_SUCCESS_MSG);
                     new ObjectMapper().writeValue(writer,resBean);
 //                    writer.write(new ObjectMapper().writeValueAsString("注销登录成功"));
                     writer.flush();

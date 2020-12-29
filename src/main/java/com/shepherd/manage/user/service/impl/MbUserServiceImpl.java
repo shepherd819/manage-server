@@ -1,9 +1,9 @@
 package com.shepherd.manage.user.service.impl;
 
-import com.shepherd.manage.user.bean.MbMenuBean;
+import com.shepherd.manage.role.bean.MbMenuBean;
+import com.shepherd.manage.role.mapper.RoleMapper;
 import com.shepherd.manage.user.bean.MbUserBean;
 import com.shepherd.manage.user.mapper.MbUserMapper;
-import com.shepherd.manage.user.mapper.RoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,7 @@
 package com.shepherd.manage.user.controller;
 
 import com.shepherd.manage.common.VerifyCode;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
