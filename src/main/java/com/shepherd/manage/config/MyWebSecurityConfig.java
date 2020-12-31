@@ -50,15 +50,16 @@ public class MyWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**", "/user/verifyCode");
+//        web.ignoring().antMatchers("/js/**", "/css/**", "/images/**", "/user/verifyCode");
+        web.ignoring().antMatchers("/*.mp3", "/js/**", "/css/**", "/images/**", "/user/verifyCode");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.addFilterBefore(verificationCodeFilter, UsernamePasswordAuthenticationFilter.class);
         http.authorizeRequests()
-                .antMatchers("/role/**").hasRole("admin")
-//                .antMatchers("/user/**").hasRole("user")
+                .antMatchers("/admin/**").hasRole("admin")
+                .antMatchers("/user/**").hasRole("user")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

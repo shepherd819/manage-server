@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,7 @@ public class RoleServiceImpl {
         return resBean;
     }
 
+    @Transactional
     public ResBean updateRoleMenu(RoleBean roleBean){
         if(roleBean == null || StringUtil.isEmpty(roleBean.getRoleId())){
             throw new BaseException("参数不全");
@@ -75,6 +77,17 @@ public class RoleServiceImpl {
             log.info("角色id:" + roleBean.getRoleId() + "删除"+ i + "个菜单");
         }
 
+        ResBean result = new ResBean();
+        return result;
+    }
+
+    @Transactional
+    public ResBean addOrUpdateRole(RoleBean roleBean){
+        if(StringUtil.isEmpty(roleBean.getRoleId())){ //新增
+//            roleMapper.addUserRole(roleBean);
+        }else{ //修改
+            roleMapper.updateRoleInfo(roleBean);
+        }
         ResBean result = new ResBean();
         return result;
     }

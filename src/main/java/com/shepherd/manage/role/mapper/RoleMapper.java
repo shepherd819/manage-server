@@ -30,4 +30,6 @@ public interface RoleMapper {
     int batchAddRoleMenu(List<RoleMenuBean> list);
 
     int deleteRoleMenu(@Param("roleId") String roleId,@Param("list") List<String> list);
+
+    int updateRoleInfo(RoleBean roleBean);
 }

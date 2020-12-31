@@ -109,7 +109,7 @@ public class MbUserBean implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         for (RoleBean role : getRoles()) {
-            authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleName()));
         }
         return authorities;
     }

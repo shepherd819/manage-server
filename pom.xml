@@ -116,6 +116,7 @@
                     <include>**/*.gif</include>
                     <include>**/*.woff</include>
                     <include>**/*.ttf</include>
+                    <include>**/*.mp3</include>
                     <!--加载静态文件-->
                     <include>/static/</include>
                 </includes>

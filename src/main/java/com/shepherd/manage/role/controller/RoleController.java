@@ -50,4 +50,10 @@ public class RoleController {
         return Result.getResult(resBean);
     }
 
+    @PostMapping("/roleInfo")
+    public String roleInfo(@RequestBody RoleBean roleBean){
+        ResBean resBean = roleService.addOrUpdateRole(roleBean);
+        return Result.getResult(resBean);
+    }
+
 }

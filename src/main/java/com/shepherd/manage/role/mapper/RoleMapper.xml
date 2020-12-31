@@ -89,5 +89,24 @@
     <select id="getRoleMenuList" resultType="string">
         select menu_id from T_MB_ROLE_MENU t where t.is_del=0 and t.role_id=#{roleId}
     </select>
+    <update id="updateRoleInfo">
+        UPDATE T_MB_ROLE
+        <set>
+            <if test="roleName != null">
+                role_name=#{roleName},
+            </if>
+            <if test="roleNameZh != null">
+                role_name_zh = #{roleNameZh},
+            </if>
+            <if test="roleDesc != null">
+                role_desc=#{roleDesc},
+            </if>
+            <if test="status != null">
+                status=#{status},
+            </if>
+            last_modify_time = CURRENT_TIME
+        </set>
+        WHERE is_del=0 AND role_id = #{roleId}
+    </update>
 
 </mapper>
